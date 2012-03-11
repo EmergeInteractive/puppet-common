@@ -79,7 +79,7 @@ define common::concatfilepart (
   } else {
     # use >| to force clobbering the target file
     exec { "${file} concatenation":
-      command => "/usr/bin/find ${dir} -maxdepth 1 -type f ! -name '*puppettmp' -print0 | sort -z | xargs -0 cat >| ${file}",
+      command => "/usr/bin/find ${dir} -maxdepth 1 -type f ! -name '*puppettmp' -print0 | sort -z | xargs -0 /bin/cat >| ${file}",
       refreshonly => true,
       subscribe => File[$dir],
       before => File[$file],
