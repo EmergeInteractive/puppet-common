@@ -22,7 +22,7 @@ class common::assert_lsbdistcodename {
 			exec { "false # assert_lsbdistcodename": alias => assert_lsbdistcodename }
 		}
 		'n/a': {
-			case $operatingsystem {
+			case $::operatingsystem {
 				"Debian": {
 					err("lsb_release was unable to report your distcodename; This seems to indicate a broken apt/sources.list on $fqdn")
 				}
